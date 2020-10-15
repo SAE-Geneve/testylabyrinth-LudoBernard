@@ -13,7 +13,7 @@ public:
 	void Attack(Character& enemy) const;
 	bool IsDead() const;
 	float Distance(const Character& character) const;
-
+	
 public:
 	void SetHealthPoints(int health_points) { health_points_ = health_points; }
 	int GetHealthPoints() const { return health_points_; }

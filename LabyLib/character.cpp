@@ -1,6 +1,7 @@
 #include "character.h"
 
 #include <cmath>
+#include <iostream>
 #include <limits>
 
 Character::Character(
@@ -17,17 +18,18 @@ Character::Character(
 
 void Character::Attack(Character& enemy) const
 {
-	// TODO: Complete me!
+	if(Distance(enemy) == 1)
+	{
+		enemy.SetHealthPoints(std::min(enemy.GetHealthPoints(), enemy.GetHealthPoints() - (attack_ - enemy.GetDefence())));
+	}
 }
 
 bool Character::IsDead() const
 {
-	// TODO: Complete me!
-	return false;
+	return(health_points_ <= 0 ? true : false);
 }
 
 float Character::Distance(const Character& character) const
 {
-	// TODO: Complete me!
-	return 1.0f;
+	return (float)abs((xy_.first - character.xy_.first)+(xy_.second - character.xy_.second));
 }
